@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="description" content="Learn languages with smart flashcards, spaced repetition, quizzes, pronunciation, grammar, idioms and structured A1–C2 courses." />
+  <meta property="og:title" content="Lino" />
+  <meta property="og:description" content="A smarter way to learn languages — on the web and Android." />
+  <meta property="og:type" content="website" />
+  <title>Lino — Learn smarter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="nav-shell">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>Multilingual <b>Flashcards</b></span>
+      </a>
+      <div class="nav-links">
+        <a href="#features" data-i18n="nav_features">ویژگی‌ها</a>
+        <a href="#learn" data-i18n="nav_learning">مسیر یادگیری</a>
+        <a href="#about" data-i18n="nav_about">درباره</a>
+        <a href="#faq" data-i18n="nav_faq">سوالات متداول</a>
+      </div>
+      <div class="nav-actions">
+        <label class="language-picker" aria-label="Language">
+          <span aria-hidden="true">🌐</span>
+          <select id="languageSelect">
+            <option value="fa">فارسی</option><option value="en">English</option><option value="de">Deutsch</option>
+            <option value="tr">Türkçe</option><option value="fr">Français</option><option value="es">Español</option>
+            <option value="it">Italiano</option><option value="pt">Português</option><option value="ru">Русский</option>
+            <option value="ar">العربية</option><option value="zh">中文</option>
+          </select>
+        </label>
+        <a class="btn btn-small btn-ghost" href="/pwa/" data-i18n="nav_open">ورود به برنامه</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">یادگیری زبان، منظم و هوشمند</span></div>
+        <h1 data-i18n="hero_title">هر روز کمی بهتر.<br><span>هر زبان، یک مسیر روشن.</span></h1>
+        <p class="hero-lead" data-i18n="hero_desc">فلش‌کارت هوشمند، مرور فاصله‌دار، تلفظ، گرامر، اصطلاحات و مسیر آموزشی A1 تا C2 را در یک تجربه ساده و سریع کنار هم داشته باش.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/pwa/">
+            <span data-i18n="web_cta">نسخه وب</span><span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="btn btn-secondary" href="/downloads/app-release.apk" download>
+            <span data-i18n="android_cta">دانلود نسخه اندروید</span><span aria-hidden="true">↓</span>
+          </a>
+        </div>
+        <div class="hero-meta">
+          <span>✓ <span data-i18n="meta_no_install">وب بدون نصب</span></span>
+          <span>✓ <span data-i18n="meta_offline">یادگیری آفلاین</span></span>
+          <span>✓ <span data-i18n="meta_languages">۱۱ زبان آموزشی</span></span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-label="App preview">
+        <div class="orb orb-a"></div><div class="orb orb-b"></div>
+        <div class="phone-card">
+          <div class="phone-top"><span>9:41</span><div class="phone-icons">● ◒</div></div>
+          <div class="app-mini-head"><span class="mini-logo">M</span><span data-i18n="preview_today">امروز</span><span class="mini-streak">🔥 12</span></div>
+          <div class="progress-card">
+            <div class="row"><span data-i18n="preview_goal">هدف روزانه</span><b>14 / 20</b></div>
+            <div class="track"><i style="width:70%"></i></div>
+          </div>
+          <div class="word-card">
+            <span class="pill">B1 · English</span>
+            <button class="sound" aria-label="Pronunciation">◖)))</button>
+            <h3>remarkable</h3><p>قابل توجه، چشمگیر</p>
+            <div class="sentence">A remarkable improvement in just a few weeks.</div>
+          </div>
+          <div class="rating-row"><button>Again</button><button>Hard</button><button class="active">Good</button><button>Easy</button></div>
+        </div>
+        <div class="float-card float-one"><b>+120 XP</b><span data-i18n="preview_week">این هفته</span></div>
+        <div class="float-card float-two"><b>A1 → C2</b><span data-i18n="preview_path">مسیر مرحله‌ای</span></div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        <div><b>11</b><span data-i18n="stat_lang">زبان</span></div>
+        <div><b>A1–C2</b><span data-i18n="stat_levels">سطوح آموزشی</span></div>
+        <div><b>SRS</b><span data-i18n="stat_srs">مرور هوشمند</span></div>
+        <div><b>PWA</b><span data-i18n="stat_anywhere">روی هر دستگاه</span></div>
+      </div>
+    </section>
+
+    <section id="features" class="section container">
+      <div class="section-head reveal"><span class="kicker" data-i18n="features_kicker">همه چیز برای استمرار</span><h2 data-i18n="features_title">ابزارهایی که یادگیری را به عادت تبدیل می‌کنند</h2><p data-i18n="features_desc">به‌جای پراکندگی بین چند اپ، مرور، تمرین، تلفظ، آمار و دوره آموزشی را یکجا داشته باش.</p></div>
+      <div class="feature-grid">
+        <article class="feature feature-large reveal"><div class="icon">↻</div><h3 data-i18n="f1_title">مرور فاصله‌دار هوشمند</h3><p data-i18n="f1_desc">کلمات درست زمانی برمی‌گردند که احتمال فراموشی بالاتر است؛ با انتخاب Again، Hard، Good و Easy.</p><div class="micro-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="feature reveal"><div class="icon">◎</div><h3 data-i18n="f2_title">هدف روزانه و Streak</h3><p data-i18n="f2_desc">هدف قابل تنظیم، زنجیره روزهای مطالعه و XP برای حفظ انگیزه.</p></article>
+        <article class="feature reveal"><div class="icon">◖)))</div><h3 data-i18n="f3_title">تلفظ و شنیدن</h3><p data-i18n="f3_desc">شنیدن واژه‌ها و مثال‌ها با TTS و تمرین مداوم تلفظ.</p></article>
+        <article class="feature reveal"><div class="icon">◫</div><h3 data-i18n="f4_title">Quiz و Typing</h3><p data-i18n="f4_desc">مرور را با سوال چندگزینه‌ای و تایپ پاسخ از حالت منفعل خارج کن.</p></article>
+        <article class="feature reveal"><div class="icon">⌁</div><h3 data-i18n="f5_title">Weak Words</h3><p data-i18n="f5_desc">کلماتی که بیشتر اشتباه می‌زنی خودکار جدا می‌شوند تا هدفمند مرور کنی.</p></article>
+        <article class="feature reveal"><div class="icon">✦</div><h3 data-i18n="f6_title">آمار و دستاوردها</h3><p data-i18n="f6_desc">پیشرفت، فعالیت، امتیازها و دستاوردها را قابل مشاهده و قابل اندازه‌گیری کن.</p></article>
+      </div>
+    </section>
+
+    <section id="learn" class="section course-section">
+      <div class="container course-wrap">
+        <div class="course-copy reveal"><span class="kicker" data-i18n="course_kicker">از اولین حرف تا مکالمه پیشرفته</span><h2 data-i18n="course_title">یک مسیر آموزشی کامل، نه فقط فلش‌کارت</h2><p data-i18n="course_desc">برای زبان‌های اصلی اپ، آموزش خط و الفبا، گرامر، اصطلاحات و مسیر مرحله‌ای A1 تا C2 کنار تمرین روزانه قرار گرفته است.</p><ul><li data-i18n="course_1">الفبا و سیستم نوشتاری هر زبان</li><li data-i18n="course_2">گرامر مرحله‌بندی‌شده از مقدماتی تا پیشرفته</li><li data-i18n="course_3">اصطلاحات کاربردی و مثال‌های واقعی</li><li data-i18n="course_4">باز شدن مرحله‌ای سطوح بر اساس پیشرفت</li></ul></div>
+        <div class="levels reveal" aria-label="Course levels">
+          <div class="level done"><span>A1</span><b data-i18n="level_beginner">مقدماتی</b><i>100%</i></div>
+          <div class="level done"><span>A2</span><b data-i18n="level_elementary">پایه</b><i>86%</i></div>
+          <div class="level current"><span>B1</span><b data-i18n="level_intermediate">متوسط</b><i>64%</i></div>
+          <div class="level"><span>B2</span><b data-i18n="level_upper">متوسط رو به بالا</b><i>Locked</i></div>
+          <div class="level"><span>C1</span><b data-i18n="level_advanced">پیشرفته</b><i>Locked</i></div>
+          <div class="level"><span>C2</span><b data-i18n="level_mastery">تسلط</b><i>Locked</i></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section container about-grid">
+      <div class="about-card reveal"><span class="kicker" data-i18n="about_kicker">درباره محصول</span><h2 data-i18n="about_title">ساخته شده برای یادگیری واقعی و مستمر</h2><p data-i18n="about_desc">Lino یک ابزار چندسکویی برای یادگیری زبان است که مرور علمی، محتوای آموزشی، تمرین و پیگیری پیشرفت را در یک تجربه واحد ترکیب می‌کند. هدف، کوتاه‌تر کردن فاصله بین «مطالعه کردن» و «به خاطر سپردن» است.</p></div>
+      <div class="principles reveal"><div><span>01</span><h3 data-i18n="p1_title">ساده</h3><p data-i18n="p1_desc">تمرکز روی چیزی که امروز باید یاد بگیری، بدون شلوغی.</p></div><div><span>02</span><h3 data-i18n="p2_title">شخصی</h3><p data-i18n="p2_desc">مرور بر اساس عملکرد خودت، نه برنامه ثابت برای همه.</p></div><div><span>03</span><h3 data-i18n="p3_title">در دسترس</h3><p data-i18n="p3_desc">وب، PWA و Android با تجربه‌ای یکپارچه.</p></div></div>
+    </section>
+
+    <section class="section container platform-grid">
+      <article class="platform web reveal"><div><span class="platform-tag">PWA</span><h2 data-i18n="web_title">همین حالا در مرورگر شروع کن</h2><p data-i18n="web_desc">بدون نصب وارد نسخه وب شو؛ روی دسکتاپ یا موبایل و در مرورگرهای مدرن.</p><a class="btn btn-primary" href="/pwa/"><span data-i18n="web_cta">نسخه وب</span> ↗</a></div><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>your-domain.com/pwa/</span></div><div class="browser-body"><div class="fake-side"></div><div class="fake-content"><b>Good morning 👋</b><div></div><div></div><div class="fake-cards"><i></i><i></i><i></i></div></div></div></div></article>
+      <article class="platform android reveal"><div class="android-art"><div class="android-icon">🤖</div><div class="apk">APK</div></div><div><span class="platform-tag">Android</span><h2 data-i18n="android_title">نسخه موبایل را همراهت داشته باش</h2><p data-i18n="android_desc">APK را مستقیم دریافت کن و تمرین‌هایت را روی گوشی ادامه بده.</p><a class="btn btn-light" href="/downloads/app-release.apk" download><span data-i18n="android_cta">دانلود نسخه اندروید</span> ↓</a><small data-i18n="apk_hint">فایل رسمی APK از همین دامنه دریافت می‌شود.</small></div></article>
+    </section>
+
+    <section id="faq" class="section container faq-wrap">
+      <div class="section-head reveal"><span class="kicker">FAQ</span><h2 data-i18n="faq_title">سوالات متداول</h2></div>
+      <div class="faq-list reveal">
+        <details><summary data-i18n="q1">آیا نسخه وب نیاز به نصب دارد؟</summary><p data-i18n="a1">خیر. مستقیماً از مرورگر اجرا می‌شود و در مرورگرهای پشتیبانی‌شده می‌توان آن را به‌عنوان PWA نصب کرد.</p></details>
+        <details><summary data-i18n="q2">APK از کجا دانلود می‌شود؟</summary><p data-i18n="a2">دکمه نسخه موبایل همیشه به مسیر ثابت /downloads/app-release.apk اشاره می‌کند؛ بنابراین با هر انتشار فقط فایل APK در سرور جایگزین می‌شود.</p></details>
+        <details><summary data-i18n="q3">چه زبان‌هایی محتوای آموزشی دارند؟</summary><p data-i18n="a3">انگلیسی، فارسی، آلمانی، ترکی، فرانسوی، اسپانیایی، ایتالیایی، پرتغالی، روسی، عربی و چینی.</p></details>
+        <details><summary data-i18n="q4">اطلاعات یادگیری من کجا ذخیره می‌شود؟</summary><p data-i18n="a4">اپ برای یادگیری آفلاین طراحی شده و بخش قابل توجهی از داده‌ها محلی نگهداری می‌شود. امکانات همگام‌سازی ابری در صورت اتصال سرویس مربوطه قابل فعال‌سازی است.</p></details>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container final-inner reveal"><div><span class="kicker" data-i18n="final_kicker">امروز شروع کن</span><h2 data-i18n="final_title">یک جلسه کوتاه امروز، یک زبان قوی‌تر فردا.</h2></div><div class="hero-actions"><a class="btn btn-primary" href="/pwa/" data-i18n="web_cta">نسخه وب</a><a class="btn btn-secondary" href="/downloads/app-release.apk" download data-i18n="android_short">دانلود APK</a></div></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid"><div class="brand footer-brand"><span class="brand-mark">M</span><span>Multilingual <b>Flashcards</b></span></div><p data-i18n="footer_desc">یادگیری هوشمند زبان با مرور فاصله‌دار، تمرین و مسیر آموزشی.</p><div class="footer-links"><a href="#about" data-i18n="nav_about">درباره</a><a href="#faq" data-i18n="nav_faq">FAQ</a><a href="/pwa/">PWA</a><a href="/downloads/app-release.apk">APK</a></div><small>© <span id="year"></span> Lino.</small></div>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>
