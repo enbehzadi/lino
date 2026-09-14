@@ -1,63 +1,137 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+    <base href="https://enbehzadi.github.io/lino/">
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="Lino — multilingual language learning.">
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Lino">
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="manifest" href="manifest.json">
 
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="https://enbehzadi.github.io/lino/">
+    <title>Lino</title>
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Lino — multilingual language learning with spaced repetition, A1–C2 courses, grammar, idioms and pronunciation.">
+    <style>
+        html, body {
+          margin: 0;
+          width: 100%;
+          height: 100%;
+          background: #f4fbf9;
+        }
 
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Lino">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+        #lino-loader {
+          position: fixed;
+          inset: 0;
+          z-index: 999999;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: #f4fbf9;
+          transition: opacity .25s ease;
+        }
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+        #lino-loader img {
+          width: 96px;
+          height: 96px;
+          border-radius: 24px;
+          margin-bottom: 20px;
+        }
 
-  <title>Lino — Language Learning</title>
-  <link rel="manifest" href="manifest.json">
+        #lino-loader .spinner {
+          width: 34px;
+          height: 34px;
+          border: 4px solid rgba(20, 160, 140, .18);
+          border-top-color: #14a08c;
+          border-radius: 50%;
+          animation: lino-spin .8s linear infinite;
+        }
 
-  <script>
-    let linoDeferredInstallPrompt = null;
-    window.addEventListener('beforeinstallprompt', (event) => {
-      event.preventDefault();
-      linoDeferredInstallPrompt = event;
-    });
-    window.addEventListener('appinstalled', () => {
-      linoDeferredInstallPrompt = null;
-    });
-    window.linoCanInstallPwa = function () {
-      return !!linoDeferredInstallPrompt;
-    };
-    window.linoIsStandalone = function () {
-      return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-    };
-    window.linoPromptPwaInstall = async function () {
-      if (!linoDeferredInstallPrompt) return 'unavailable';
-      const promptEvent = linoDeferredInstallPrompt;
-      await promptEvent.prompt();
-      const choice = await promptEvent.userChoice;
-      linoDeferredInstallPrompt = null;
-      return choice && choice.outcome ? choice.outcome : 'dismissed';
-    };
-  </script>
+        #lino-loader p {
+          margin-top: 14px;
+          font-family: Arial, sans-serif;
+          color: #28766b;
+          font-size: 14px;
+        }
+
+        @keyframes lino-spin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+    </style>
+
+    <script>
+        let linoDeferredInstallPrompt = null;
+
+        window.addEventListener('beforeinstallprompt', function (event) {
+          event.preventDefault();
+          linoDeferredInstallPrompt = event;
+        });
+
+        window.addEventListener('appinstalled', function () {
+          linoDeferredInstallPrompt = null;
+        });
+
+        window.linoCanInstallPwa = function () {
+          return linoDeferredInstallPrompt !== null;
+        };
+
+        window.linoIsStandalone = function () {
+          return window.matchMedia('(display-mode: standalone)').matches ||
+                 window.navigator.standalone === true;
+        };
+
+        window.linoPromptPwaInstall = async function () {
+          if (!linoDeferredInstallPrompt) {
+            return 'unavailable';
+          }
+
+          const event = linoDeferredInstallPrompt;
+          await event.prompt();
+
+          const choice = await event.userChoice;
+          linoDeferredInstallPrompt = null;
+
+          return choice?.outcome ?? 'dismissed';
+        };
+
+        function removeLinoLoader() {
+          const loader = document.getElementById('lino-loader');
+
+          if (!loader) return;
+
+          loader.style.opacity = '0';
+
+          setTimeout(() => {
+            loader.remove();
+          }, 300);
+        }
+
+        window.addEventListener('flutter-first-frame', removeLinoLoader);
+
+        // Safety fallback:
+        // even if the first-frame event isn't emitted as expected,
+        // don't leave the user on an infinite loader.
+        setTimeout(removeLinoLoader, 12000);
+    </script>
 </head>
+
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+
+<div id="lino-loader">
+    <img src="icons/Icon-192.png" alt="Lino">
+    <div class="spinner"></div>
+    <p>Loading Lino...</p>
+</div>
+
+<script src="flutter_bootstrap.js" async></script>
+
 </body>
 </html>
